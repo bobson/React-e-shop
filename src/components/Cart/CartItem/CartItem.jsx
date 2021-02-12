@@ -56,4 +56,6 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
   );
 };
 
+// test
+
 export default CartItem;
