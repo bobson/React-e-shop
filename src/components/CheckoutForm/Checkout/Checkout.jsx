@@ -34,9 +34,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         });
         setCheckoutToken(token);
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.log(error);
-        history.pushState("/");
+        history.push("/");
       }
     };
 
@@ -55,7 +53,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   const timeout = () => {
     setTimeout(() => {
       setIsFinished(true);
-    }, 3000);
+    }, 5000);
   };
 
   let Confirmation = () =>
@@ -67,7 +65,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
             {order.customer.lastname}
           </Typography>
           <Divider className={classes.divider} />
-          <Typography variant="subtitle">
+          <Typography variant="subtitle1">
             Order ref: {order.customer_reference}
           </Typography>
         </div>
@@ -95,7 +93,9 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
   if (error) {
     <>
-      <Typography variant="h5">{error}</Typography>
+      <Typography variant="h5">Error: {error}</Typography>
+      <Typography variant="h5">Try entering a valid email</Typography>
+      <Divider className={classes.divider} />
       <Button component={Link} to="/" variant="outlined" type="button">
         Back to home
       </Button>

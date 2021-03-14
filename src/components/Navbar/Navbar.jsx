@@ -4,15 +4,13 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
 import Typography from "@material-ui/core/Typography";
 
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 
 import { Link, useLocation } from "react-router-dom";
 
-import logo from "../../assets/download.png";
+import logo from "../../assets/logo.png";
 
 import useStyles from "./styles";
 
@@ -27,7 +25,7 @@ const Navbar = ({ totalItems }) => {
           <Typography
             component={Link}
             to="/"
-            variant="h6"
+            variant="subtitle1"
             className={classes.title}
             color="inherit"
           >
@@ -37,7 +35,7 @@ const Navbar = ({ totalItems }) => {
               height="25px"
               className={classes.image}
             />
-            Boom Deal
+            commerce
           </Typography>
           <div className={classes.grow} />
           {location.pathname === "/" && (

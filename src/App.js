@@ -62,6 +62,9 @@ const App = () => {
       refreshCart();
     } catch (error) {
       setErrorMessage(error.data.error.message);
+      setTimeout(() => {
+        refreshCart();
+      }, 7000);
     }
   };
 
@@ -70,7 +73,6 @@ const App = () => {
     fetchCart();
   }, []);
 
-  // console.log(cart);
   return (
     <Router>
       <CssBaseline>

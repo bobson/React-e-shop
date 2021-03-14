@@ -16,7 +16,6 @@ import { useForm, FormProvider } from "react-hook-form";
 import FormInput from "./CustomTextField.jsx";
 
 import { commerce } from "../../lib/commerce";
-import { NavigateBefore } from "@material-ui/icons";
 
 const AddressForm = ({ checkoutToken, next }) => {
   const [shippingCountries, setShippingCountries] = useState([]);
@@ -32,6 +31,7 @@ const AddressForm = ({ checkoutToken, next }) => {
     id: code,
     label: name,
   }));
+
   const subdivisions = Object.entries(shippingSubdivisions).map(
     ([code, name]) => ({
       id: code,
@@ -47,6 +47,7 @@ const AddressForm = ({ checkoutToken, next }) => {
     const { countries } = await commerce.services.localeListShippingCountries(
       checkoutTokenId
     );
+
     setShippingCountries(countries);
     setShippingCountry(Object.keys(countries)[2]);
   };
@@ -74,6 +75,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 
   useEffect(() => {
     fetchShippingCountries(checkoutToken.id);
+    return () => setShippingCountries([]);
   }, []);
 
   useEffect(() => {
@@ -115,7 +117,7 @@ const AddressForm = ({ checkoutToken, next }) => {
             <Grid item xs={12} sm={6}>
               <InputLabel>Shipping Country</InputLabel>
               <Select
-                value={shippingCountry}
+                value={shippingCountry ? shippingCountry : ""}
                 fullWidth
                 onChange={(e) => setShippingCountry(e.target.value)}
               >
@@ -129,7 +131,7 @@ const AddressForm = ({ checkoutToken, next }) => {
             <Grid item xs={12} sm={6}>
               <InputLabel>Shipping Subdivision</InputLabel>
               <Select
-                value={shippingSubdivision}
+                value={shippingSubdivision ? shippingSubdivision : ""}
                 fullWidth
                 onChange={(e) => setShippingSubdivision(e.target.value)}
               >
@@ -143,7 +145,7 @@ const AddressForm = ({ checkoutToken, next }) => {
             <Grid item xs={12} sm={6}>
               <InputLabel>Shipping Options</InputLabel>
               <Select
-                value={shippingOption}
+                value={shippingOption ? shippingOption : ""}
                 fullWidth
                 onChange={(e) => setShippingOption(e.target.value)}
               >
