@@ -1,13 +1,12 @@
 import React from "react";
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Typography,
-  IconButton,
-} from "@material-ui/core";
-import { AddShoppingCart } from "@material-ui/icons";
+
+import Typography from "@material-ui/core/Typography";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import IconButton from "@material-ui/core/IconButton";
+import AddShoppingCart from "@material-ui/icons/AddShoppingCart";
 
 import useStyles from "./styles";
 

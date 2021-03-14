@@ -1,5 +1,10 @@
 import React from "react";
-import { Container, Typography, Button, Grid } from "@material-ui/core";
+
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+
 import { Link } from "react-router-dom";
 
 import CartItem from "./CartItem/CartItem.jsx";
@@ -12,8 +17,6 @@ const Cart = ({
   handleRemoveFromCart,
   handleEmptyCart,
 }) => {
-  console.log(cart);
-
   const classes = useStyles();
 
   const EmptyCart = () => (
